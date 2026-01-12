@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Serif SC', 'Noto Serif', serif;
+}
+
+.hero-height {
+    height: 3cm;
+    min-height: 150px;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+    .hero-height {
+        height: 2.5cm;
+        min-height: 120px;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+}
+
+/* Banner optimization */
+@media (max-width: 640px) {
+    #banner-slider .banner-slide .flex {
+        height: 40vh !important;
+    }
+    
+    /* Ensure banner images are fully visible on mobile */
+    #banner-slider .banner-slide .flex img {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Banner optimization for devices below 425px */
+@media (max-width: 425px) {
+    /* Increase banner height to accommodate both text and image */
+    #banner-slider .banner-slide .flex {
+        height: auto !important;
+        min-height: auto;
+        flex-direction: column-reverse !important;
+        gap: 0 !important;
+    }
+    
+    /* Adjust padding and layout for better text display */
+    #banner-slider .banner-slide .flex .bg-gradient-to-br {
+        padding: 12px 16px !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Ensure elements maintain their order */
+    #banner-slider .banner-slide .flex .bg-gradient-to-br > * {
+        order: 0 !important;
+    }
+    
+    /* Ensure button stays at the bottom */
+    #banner-slider .banner-slide .flex .bg-gradient-to-br a {
+        margin-top: auto !important;
+        align-self: flex-start;
+    }
+    
+    /* Reduce font sizes for better fit on small screens */
+    #banner-slider .banner-slide .flex h2 {
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
+        align-self: flex-start;
+    }
+    
+    #banner-slider .banner-slide .flex h2 span {
+        font-size: 0.875rem !important;
+    }
+    
+    #banner-slider .banner-slide .flex p {
+        font-size: 0.875rem !important;
+        margin-bottom: 16px !important;
+        line-height: 1.5;
+        align-self: flex-start;
+    }
+    
+    /* Adjust button size and ensure it stays at the bottom */
+    #banner-slider .banner-slide .flex a {
+        padding: 6px 12px !important;
+        font-size: 0.875rem !important;
+        margin-top: auto !important;
+        align-self: flex-start !important;
+    }
+    
+    /* Ensure image container has proper height */
+    #banner-slider .banner-slide .flex div:first-child {
+        min-height: 250px;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 !important;
+    }
+    
+    /* Ensure image is properly sized and fills the container */
+    #banner-slider .banner-slide .flex img {
+        object-fit: cover;
+        max-height: 100%;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+/* Subpage navigation optimization */
+@media (max-width: 640px) {
+    section.bg-amber-50.py-4.border-y.border-amber-200 .flex {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 8px;
+    }
+    
+    /* Reduce padding and font size for subpage navigation on mobile */
+    section.bg-amber-50.py-4.border-y.border-amber-200 a {
+        white-space: nowrap;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    section.bg-amber-50.py-4.border-y.border-amber-200 a span.text-xs {
+        font-size: 0.625rem;
+    }
+}
+
+/* Subpage navigation optimization for devices below 425px */
+@media (max-width: 425px) {
+    /* Set navigation items to display 2 per row */
+    section.bg-amber-50.py-4.border-y.border-amber-200 .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+    
+    /* Set each navigation item to take about half the row width */
+    section.bg-amber-50.py-4.border-y.border-amber-200 a {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        text-align: center;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+        white-space: normal;
+    }
+    
+    /* Adjust subtitle font size */
+    section.bg-amber-50.py-4.border-y.border-amber-200 a span.text-xs {
+        font-size: 0.55rem;
+    }
+}
+
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+/* Ensure map displays completely on mobile (425px and below) */
+@media (max-width: 425px) {
+    .map-container {
+        height: 350px;
+        overflow: hidden;
+    }
+    
+    .map-container img {
+        object-fit: contain !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+.map-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #dc2626;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Move Liuli marker 2 units to the left on PC only */
+@media (min-width: 426px) {
+    .liuli-marker-container {
+        left: calc(48.5% - 2%) !important;
+    }
+}
+
+/* Ensure map markers are visible on mobile */
+@media (max-width: 425px) {
+    .map-marker {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .map-container div[class="absolute"] div.ml-4 {
+        font-size: 12px;
+        padding: 1px 3px;
+    }
+    
+    /* Move Liuli marker 3 units to the right on mobile */
+    .liuli-marker-container {
+        left: calc(48.5% + 3%) !important;
+    }
+    
+    /* Move Kaimu marker 6 units to the right on mobile */
+    .kaimu-marker-container {
+        left: calc(32.5% + 6%) !important;
+    }
+    
+    /* Move Huamo marker 5 units up on mobile */
+    .huamo-marker-container {
+        top: calc(85% - 5%) !important;
+    }
+    
+    /* Move Luxiu marker 7 units to the right and 2 units down on mobile */
+    .luxiu-marker-container {
+        left: calc(40% + 7%) !important;
+        top: calc(45% + 2%) !important;
+    }
+}
+
+.map-marker:hover {
+    transform: scale(1.5);
+    background-color: #b91c1c;
+}
+
+.blind-box-animation {
+    animation: shake 3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+    20%, 40%, 60%, 80% { transform: rotate(5deg); }
+}
